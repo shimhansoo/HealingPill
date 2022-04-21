@@ -19,16 +19,34 @@ repositories {
 }
 
 dependencies {
+    // 기본적인 JDBC
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    // 데이터를 관리하는 JPA
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // 컨트롤러가 전달하는 데이터를 이용하여 동적으로 화면을 구성하는 Thymeleaf
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // Spring MVC를 사용한 Web 응용프로그램
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    // 스프링 웹서비스를 사용하기 위한 스타터
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    // mybatis 연동
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+    implementation group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: '1.0.2'
+    implementation group: 'org.mybatis', name: 'mybatis-spring', version: '2.0.6'
+    // getter, setter 등 반복되는 메서드를 자동으로 작성하는 라이브러리
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+    // 개발때 사용할 수 있는 추가적인 기능을 제공
+    // 클래스 파일 변경 시 자동 재시작 기능
+    // 자원이 변경되었을때 웹 브라우저를 새로고침하는 LiveReload기능
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // Oracle jdbc 연동
+    runtimeOnly 'com.oracle.database.jdbc:ojdbc6'
+    runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
+    implementation group: 'com.oracle.database.jdbc', name: 'ojdbc8', version: '21.3.0.0'
+    // yml, properties에서 사용하는 Configuration의 자동완성을 도와주는 메타데이터
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    // JUnit, Hamcast, Mockito 라이브러리를 사용해 애플리케이션을 테스트하기 위한 스타터
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
