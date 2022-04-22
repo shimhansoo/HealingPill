@@ -7,4 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface MemberMapper {
     void saveMember(MemberVO memberVO);
+
+    /* 로그인 */
+    public MemberVO memberLogin(MemberVO memberVO);
 }
